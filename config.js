@@ -1,13 +1,4 @@
-
-var dotenv = require('dotenv');
-var cfg = {};
-
-if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
-  dotenv.config({path: '.env'});
-} else {
-  dotenv.config({path: '.env.test', silent: true});
-}
-
+// check for kool configs: https://www.twilio.com/docs/tutorials/walkthrough/server-notifications/node/express
 var config = {
 
     // Urls of the kijiji search pages you want to scrape
