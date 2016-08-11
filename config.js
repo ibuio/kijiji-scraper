@@ -1,3 +1,13 @@
+
+var dotenv = require('dotenv');
+var cfg = {};
+
+if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
+  dotenv.config({path: '.env'});
+} else {
+  dotenv.config({path: '.env.test', silent: true});
+}
+
 var config = {
 
     // Urls of the kijiji search pages you want to scrape
@@ -15,8 +25,13 @@ var config = {
     },
 
     twilio: {
-        key: 'd1ac40a099692f0cf407e824d7df8069',
-        account: 'AC61d7e463d71d375ccd3830c88221f5d6'
+        key: process.env.TWILIO_ACCOUNT_SID,
+        account: process.env.TWILIO_ACCOUNT_SID,
+        sendingNumber: process.env.TWILIO_NUMBER
+        // should be:
+        // cfg.accountSid = process.env.TWILIO_ACCOUNT_SID;
+        // cfg.authToken = process.env.TWILIO_AUTH_TOKEN;
+        // cfg.sendingNumber = process.env.TWILIO_NUMBER;
     }
 
     // Check evert X minutes

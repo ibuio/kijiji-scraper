@@ -3,7 +3,8 @@ var request = require('request');
 var cheerio = require('cheerio');
 var schedule = require('node-schedule');
 var RSVP = require('rsvp');
-var nodemailer = require('nodemailer');
+//var nodemailer = require('nodemailer');
+var client = require('twilio')({config.twilio.account), {config.twilio.key});
 
 var config = require('./config');
 
@@ -84,8 +85,15 @@ function processNewAds(fetchedAds) {
         return;
     }
 
-    emailAds(newAds);
+    //emailAds(newAds);
+    smsAds(newAds);
     processedAds = processedAds.concat(newAds);
+}
+
+function smsAds(ads) {
+    logAdsBeingEmailed(ads);
+
+    
 }
 
 function emailAds(ads) {
