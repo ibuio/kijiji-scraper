@@ -5,6 +5,7 @@ Configuration:
 2. Fill in the config values
 3. Log into your gmail account and allow insecure api apps (or update this app to use Oath2, it's on the todo list)
    - https://support.google.com/accounts/answer/6010255?hl=en
+4. You will need a twilio account to be able to send sms
 
 Running the App:
 1. Install node 5.x
