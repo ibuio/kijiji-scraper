@@ -16,14 +16,10 @@ var config = {
     },
 
     twilio: {
-        key: process.env.TWILIO_ACCOUNT_SID,
         account: process.env.TWILIO_ACCOUNT_SID,
+        key: process.env.TWILIO_AUTH_TOKEN,
         sendingNumber: process.env.TWILIO_NUMBER
-        // should be:
-        // cfg.accountSid = process.env.TWILIO_ACCOUNT_SID;
-        // cfg.authToken = process.env.TWILIO_AUTH_TOKEN;
-        // cfg.sendingNumber = process.env.TWILIO_NUMBER;
-    }
+    },
 
     // Check evert X minutes
     minutesBetweenCheck: 1

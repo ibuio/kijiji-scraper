@@ -3,10 +3,11 @@ var request = require('request');
 var cheerio = require('cheerio');
 var schedule = require('node-schedule');
 var RSVP = require('rsvp');
-//var nodemailer = require('nodemailer');
-var client = require('twilio')({config.twilio.account), {config.twilio.key});
-
 var config = require('./config');
+
+//var nodemailer = require('nodemailer');
+var client = require('twilio')(config.twilio.account, config.twilio.key);
+
 
 let processedAds = [];
 
@@ -91,9 +92,9 @@ function processNewAds(fetchedAds) {
 }
 
 function smsAds(ads) {
-    logAdsBeingEmailed(ads);
+    logAdsBeingSmsed(ads);
 
-    
+    sendAdsFoundSms(ads);
 }
 
 function emailAds(ads) {
@@ -130,8 +131,32 @@ function logAdsBeingEmailed(ads) {
     console.log(``);
 }
 
+function logAdsBeingSmsed(ads) {
+    console.log(createAdsFoundMessage(ads));
+    ads.forEach(ad => {
+        console.log(`texting new ad: ${ad.title}`);
+    });
+    console.log(``);
+}
+
 function createAdsFoundMessage(ads) {
     return `We found ${ads.length} new ads for you :)`;
+}
+
+function sendAdsFoundSms(ads) {
+    var message = `We found ${ads.length} new ads for you :)`;
+    client.messages.create({
+        body: message,
+        to: +15146229479,
+        from: config.twilio.sendingNumber
+    }, function(err, data) {
+    if (err) {
+      console.error('Error sending sms.');
+      console.error(err);
+    } else {
+      console.log('Sms sent');
+    }
+  });
 }
 
 function formatAds(ads) {
