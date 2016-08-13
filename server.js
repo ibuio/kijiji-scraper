@@ -7,6 +7,7 @@ var config = require('./config');
 var express = require('express');
 var app     = express();
 
+// http://stackoverflow.com/questions/31092538/heroku-node-js-error-r10-boot-timeout-web-process-failed-to-bind-to-port-w
 app.set('port', (process.env.PORT || 5000));
 
 //For avoidong Heroku $PORT error
