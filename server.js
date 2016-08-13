@@ -4,6 +4,18 @@ var cheerio = require('cheerio');
 var schedule = require('node-schedule');
 var RSVP = require('rsvp');
 var config = require('./config');
+var express = require('express');
+var app     = express();
+
+app.set('port', (process.env.PORT || 5000));
+
+//For avoidong Heroku $PORT error
+app.get('/', function(request, response) {
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('App is running, server is listening on port ', app.get('port'));
+});
 
 //var nodemailer = require('nodemailer');
 var client = require('twilio')(config.twilio.account, config.twilio.key);
@@ -175,6 +187,6 @@ schedule.scheduleJob(cronRule, () => {
 });
 
 console.log('Kijiji Scrapper started.');
-console.log(`Watching the following page for new ads: ${config.url}`);
+console.log(`Watching the following page for new ads: ${config.urls}`);
 console.log(`Polling for new ads every ${config.minutesBetweenCheck} minutes.`);
 console.log();
