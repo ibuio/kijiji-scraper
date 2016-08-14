@@ -169,26 +169,32 @@ function sendAdsFoundSms(ads) {
     // var message = `Found ${ads.length} new ads. `;
     console.log(`Found ${ads.length} new ads. `);
 
+    int threashold = 1; // send 5 firsts sms. for test only
     ads.forEach( ad => {
-        console.log('sending sms for ad: ' + ad.title + 'in location: ' + ad.location);
-        //var message = 'ad in:' + ad.location.substring(0,60) + '; Title: ' + ad.title.substring(0,100);
-        var message = ad.url;
-        console.log('message: ' + message);
+        if(threashold <= 5) {
+            console.log('sending sms for ad: ' + ad.title + 'in location: ' + ad.location);
+            //var message = 'ad in:' + ad.location.substring(0,60) + '; Title: ' + ad.title.substring(0,100);
+            var message = ad.url;
+            console.log('message: ' + message);
 
-        //   client.messages.create({
-        //       body: message,
-        //       to: +15146229479,
-        //       from: config.twilio.sendingNumber
-        //   }, function(err, data) {
-        //   if (err) {
-        //     console.error('Error sending sms.');
-        //     console.error(err);
-        //   } else {
-        //     console.log('Sms sent');
-        //   }
-        // });
+            //   client.messages.create({
+            //       body: message,
+            //       to: +15146229479,
+            //       from: config.twilio.sendingNumber
+            //   }, function(err, data) {
+            //   if (err) {
+            //     console.error('Error sending sms.');
+            //     console.error(err);
+            //   } else {
+            //     console.log('Sms sent');
+            //   }
+            // });
 
-    })
+            threashold++;
+        }
+        else
+            console.log('nb max sms has been reached.');
+    });
 
     // var locationMap = [];
     // locationMap['quebec'] = 0;
