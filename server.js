@@ -157,7 +157,25 @@ function createAdsFoundMessage(ads) {
 }
 
 function sendAdsFoundSms(ads) {
-    var message = `We found ${ads.length} new ads for you :)`;
+    var message = `Found ${ads.length} new ads. `;
+
+    var locationMap = [];
+    ads.forEach( ad => {
+        if(locationMap[ad.location] === undefined) {
+            locationMap[ad.location] = 1;
+        }
+        else {
+            locationMap[ad.location] = locationMap[ad.location] + 1;
+        }
+    });
+    console.log('location[]: ' + locationMap);
+
+    message = message + locationMap;
+
+    //for(var location in locationMap) {
+    //
+    //}
+
     client.messages.create({
         body: message,
         to: +15146229479,
