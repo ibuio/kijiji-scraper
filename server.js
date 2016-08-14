@@ -42,16 +42,17 @@ class Ad {
         var ad = new Ad();
 
         ad.url = 'http://www.kijiji.ca' + $jquerySelector.attr('data-vip-url');
+        ad.title = $jquerySelector.
         ad.image = $jquerySelector.find('.image img').attr('src');
         ad.title = $jquerySelector.find('a.title').text().trim();
         ad.description = $jquerySelector.find('.description').text().trim();
         ad.location = $jquerySelector.find('.location').text().trim();
         ad.price = $jquerySelector.find('.price').text().trim();
 
-        if(ad.url.indexOf('quebec') > -1)
-            ad.province = 'quebec';
-        else if(ad.url.indexOf('ontario') > -1)
-            ad.province = 'ontario';
+        // if(ad.url.indexOf('quebec') > -1)
+        //     ad.province = 'quebec';
+        // else if(ad.url.indexOf('ontario') > -1)
+        //     ad.province = 'ontario';
 
         return ad;
     }
@@ -166,18 +167,40 @@ function createAdsFoundMessage(ads) {
 }
 
 function sendAdsFoundSms(ads) {
-    var message = `Found ${ads.length} new ads. `;
+    // var message = `Found ${ads.length} new ads. `;
+    console.log(`Found ${ads.length} new ads. `);
 
-    var locationMap = [];
-    locationMap['quebec'] = 0;
-    locationMap['ontario'] = 0;
     ads.forEach( ad => {
-        console.log('location: ' + ad.province);
-        locationMap[ad.province] = locationMap[ad.province] + 1;
-    });
-    console.log('locationMap[]: ' + locationMap);
+        console.log('sending sms for ad: ' + ad.title + 'in location: ' + ad.location);
+        var message = 'ad in:' + ad.location.substring(0,60) + '; Title: ' + ad.title.substring(0,100);
+        console.log('message: ' + message);
 
-    message = message + locationMap;
+        //   client.messages.create({
+        //       body: message,
+        //       to: +15146229479,
+        //       from: config.twilio.sendingNumber
+        //   }, function(err, data) {
+        //   if (err) {
+        //     console.error('Error sending sms.');
+        //     console.error(err);
+        //   } else {
+        //     console.log('Sms sent');
+        //   }
+        // });
+
+    })
+
+    // var locationMap = [];
+    // locationMap['quebec'] = 0;
+    // locationMap['ontario'] = 0;
+
+    // ads.forEach( ad => {
+    //     console.log('location: ' + ad.province);
+    //     locationMap[ad.province] = locationMap[ad.province] + 1;
+    // });
+    // console.log('locationMap[]: ' + locationMap);
+    //
+    // message = message + locationMap;
 
     //for(var location in locationMap) {
     //
