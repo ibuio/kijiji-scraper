@@ -161,11 +161,12 @@ function sendAdsFoundSms(ads) {
 
     var locationMap = [];
     ads.forEach( ad => {
-        if(locationMap[ad.location] === undefined) {
-            locationMap[ad.location] = 1;
+        console.log('location: ' + ad.location);
+        if(locationMap['\'' + ad.location + '\''] === undefined) {
+            locationMap['\'' + ad.location + '\''] = 1;
         }
         else {
-            locationMap[ad.location] = locationMap[ad.location] + 1;
+            locationMap['\'' + ad.location + '\''] = locationMap['\'' + ad.location + '\''] + 1;
         }
     });
     console.log('location[]: ' + locationMap);
