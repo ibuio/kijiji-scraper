@@ -27,6 +27,10 @@ let processedAds = [];
 class Ad {
     constructor(url, image, title, description, location, price) {
         this.url = url;
+        if(url.indexOf('quebec') > -1)
+            this.province = 'quebec';
+        else if(url.indexOf('ontario') > -1)
+            this.province = 'ontario';
         this.image = image;
         this.title = title;
         this.description = description;
@@ -43,6 +47,11 @@ class Ad {
         ad.description = $jquerySelector.find('.description').text().trim();
         ad.location = $jquerySelector.find('.location').text().trim();
         ad.price = $jquerySelector.find('.price').text().trim();
+
+        if(ad.url.indexOf('quebec') > -1)
+            ad.province = 'quebec';
+        else if(ad.url.indexOf('ontario') > -1)
+            ad.province = 'ontario';
 
         return ad;
     }
@@ -160,16 +169,14 @@ function sendAdsFoundSms(ads) {
     var message = `Found ${ads.length} new ads. `;
 
     var locationMap = [];
+    locationMap['quebec'] = 0;
+    locationMap['ontario'] = 0;
     ads.forEach( ad => {
-        console.log('location: ' + ad.location);
-        if(locationMap['\'' + ad.location + '\''] === undefined) {
-            locationMap['\'' + ad.location + '\''] = 1;
-        }
-        else {
-            locationMap['\'' + ad.location + '\''] = locationMap['\'' + ad.location + '\''] + 1;
-        }
+        console.log('location: ' + ad.province);
+
+        locationMap[ad.province] = locationMap[ad.province] + 1;
     });
-    console.log('location[]: ' + locationMap);
+    console.log('locationMap[]: ' + locationMap);
 
     message = message + locationMap;
 
