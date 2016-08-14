@@ -172,7 +172,8 @@ function sendAdsFoundSms(ads) {
 
     ads.forEach( ad => {
         console.log('sending sms for ad: ' + ad.title + 'in location: ' + ad.location);
-        var message = 'ad in:' + ad.location.substring(0,60) + '; Title: ' + ad.title.substring(0,100);
+        //var message = 'ad in:' + ad.location.substring(0,60) + '; Title: ' + ad.title.substring(0,100);
+        var message = ad.url;
         console.log('message: ' + message);
 
         //   client.messages.create({
