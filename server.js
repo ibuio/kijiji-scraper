@@ -172,7 +172,7 @@ function sendAdsFoundSms(ads) {
     int threashold = 1; // send 5 firsts sms. for test only
     ads.forEach( ad => {
         if(threashold <= 5) {
-            console.log('sending sms for ad: ' + ad.title + 'in location: ' + ad.location);
+            console.log(`sending sms for ad: ${ad.title} in location: ${ad.location}` );
             //var message = 'ad in:' + ad.location.substring(0,60) + '; Title: ' + ad.title.substring(0,100);
             var message = ad.url;
             console.log('message: ' + message);
@@ -193,37 +193,8 @@ function sendAdsFoundSms(ads) {
             threashold++;
         }
         else
-            console.log('nb max sms has been reached.');
+            console.log('nb max sms has been reached, not sending sms.');
     });
-
-    // var locationMap = [];
-    // locationMap['quebec'] = 0;
-    // locationMap['ontario'] = 0;
-
-    // ads.forEach( ad => {
-    //     console.log('location: ' + ad.province);
-    //     locationMap[ad.province] = locationMap[ad.province] + 1;
-    // });
-    // console.log('locationMap[]: ' + locationMap);
-    //
-    // message = message + locationMap;
-
-    //for(var location in locationMap) {
-    //
-    //}
-
-  //   client.messages.create({
-  //       body: message,
-  //       to: +15146229479,
-  //       from: config.twilio.sendingNumber
-  //   }, function(err, data) {
-  //   if (err) {
-  //     console.error('Error sending sms.');
-  //     console.error(err);
-  //   } else {
-  //     console.log('Sms sent');
-  //   }
-  // });
 }
 
 function formatAds(ads) {
