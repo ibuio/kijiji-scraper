@@ -169,7 +169,7 @@ function sendAdsFoundSms(ads) {
     // var message = `Found ${ads.length} new ads. `;
     console.log(`Found ${ads.length} new ads. `);
 
-    int threashold = 1; // send 5 firsts sms. for test only
+    var threashold = 1; // send 5 firsts sms. for test only
     ads.forEach( ad => {
         if(threashold <= 5) {
             console.log(`sending sms for ad: ${ad.title} in location: ${ad.location}` );
