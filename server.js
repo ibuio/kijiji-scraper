@@ -27,10 +27,10 @@ let processedAds = [];
 class Ad {
     constructor(url, image, title, description, location, price) {
         this.url = url;
-        if(url.indexOf('quebec') > -1)
-            this.province = 'quebec';
-        else if(url.indexOf('ontario') > -1)
-            this.province = 'ontario';
+        //if(url.indexOf('quebec') > -1)
+        //    this.province = 'quebec';
+        //else if(url.indexOf('ontario') > -1)
+        //    this.province = 'ontario';
         this.image = image;
         this.title = title;
         this.description = description;
@@ -173,7 +173,6 @@ function sendAdsFoundSms(ads) {
     locationMap['ontario'] = 0;
     ads.forEach( ad => {
         console.log('location: ' + ad.province);
-
         locationMap[ad.province] = locationMap[ad.province] + 1;
     });
     console.log('locationMap[]: ' + locationMap);
@@ -184,18 +183,18 @@ function sendAdsFoundSms(ads) {
     //
     //}
 
-    client.messages.create({
-        body: message,
-        to: +15146229479,
-        from: config.twilio.sendingNumber
-    }, function(err, data) {
-    if (err) {
-      console.error('Error sending sms.');
-      console.error(err);
-    } else {
-      console.log('Sms sent');
-    }
-  });
+  //   client.messages.create({
+  //       body: message,
+  //       to: +15146229479,
+  //       from: config.twilio.sendingNumber
+  //   }, function(err, data) {
+  //   if (err) {
+  //     console.error('Error sending sms.');
+  //     console.error(err);
+  //   } else {
+  //     console.log('Sms sent');
+  //   }
+  // });
 }
 
 function formatAds(ads) {
