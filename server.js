@@ -42,7 +42,6 @@ class Ad {
         var ad = new Ad();
 
         ad.url = 'http://www.kijiji.ca' + $jquerySelector.attr('data-vip-url');
-        ad.title = $jquerySelector.
         ad.image = $jquerySelector.find('.image img').attr('src');
         ad.title = $jquerySelector.find('a.title').text().trim();
         ad.description = $jquerySelector.find('.description').text().trim();
