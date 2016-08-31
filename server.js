@@ -108,7 +108,7 @@ function processNewAds(fetchedAds) {
         return;
     }
 
-    //emailAds(newAds);
+    //smsAds(newAds);
     smsAds(newAds);
     processedAds = processedAds.concat(newAds);
 }
@@ -117,40 +117,6 @@ function smsAds(ads) {
     logAdsBeingSmsed(ads);
 
     sendAdsFoundSms(ads);
-}
-
-function emailAds(ads) {
-    logAdsBeingEmailed(ads);
-
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport(
-        `smtps://${config.email.gmailUser}%40gmail.com:${config.email.gmailPassword}@smtp.gmail.com`);
-
-    // setup e-mail data with unicode symbols
-    let mailOptions = {
-        from: 'Kijiji Scraper <noreply@example.com>', // sender address
-        to: `${config.email.gmailUser}@gmail.com`, // list of receivers
-        subject: createAdsFoundMessage(ads), // Subject line
-        text: JSON.stringify(ads), // plaintext body
-        html: formatAds(ads) // html body
-    };
-
-    // send mail with defined transport object
-    transporter.sendMail(mailOptions, error => {
-        if (error) {
-            return console.log(`Email failed: ${error}`);
-        }
-
-        console.log(`Email sent successfully`);
-    });
-}
-
-function logAdsBeingEmailed(ads) {
-    console.log(createAdsFoundMessage(ads));
-    ads.forEach(ad => {
-        console.log(`emailing new ad: ${ad.title}`);
-    });
-    console.log(``);
 }
 
 function logAdsBeingSmsed(ads) {
