@@ -26,7 +26,7 @@ var config = {
     },
 
     // Check evert X minutes
-    minutesBetweenCheck: 2
+    minutesBetweenCheck: 3
 };
 
 module.exports = config;
