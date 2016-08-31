@@ -18,10 +18,10 @@ var config = {
         //'http://www.kijiji.ca/b-autos-camions/quebec/mercedes+benz-1980__2015/c174l9001a54a68?ad=offering',
         //'http://www.kijiji.ca/b-cars-trucks/ontario/mercedes+benz-1980__2015/c174l9004a54a68?ad=offering',
         //'http://www.kijiji.ca/b-cars-trucks/ontario/mercedes+benz-1980__2015/c174l9004a54a68?ad=offering'
-        'http://www.kijiji.ca/b-autos-camions/quebec/ferrari__lamborghini__porsche-1968__1999/c174l9001a54a68?ad=offering',
-        'http://www.kijiji.ca/b-cars-trucks/alberta/ferrari__lamborghini__porsche-1968__1999/c174l9003a54a68?ad=offering',
-        'http://www.kijiji.ca/b-cars-trucks/british-columbia/ferrari__lamborghini__porsche-1968__1999/c174l9007a54a68?ad=offering',
-        'http://www.kijiji.ca/b-cars-trucks/ontario/ferrari__lamborghini__porsche-1968__1999/c174l9004a54a68?ad=offering'
+        'http://www.kijiji.ca/b-autos-camions/quebec/ferrari__lamborghini__porsche-1968__1990/c174l9001a54a68?ad=offering',
+        'http://www.kijiji.ca/b-cars-trucks/alberta/ferrari__lamborghini__porsche-1968__1990/c174l9003a54a68?ad=offering',
+        'http://www.kijiji.ca/b-cars-trucks/british-columbia/ferrari__lamborghini__porsche-1968__1990/c174l9007a54a68?ad=offering',
+        'http://www.kijiji.ca/b-cars-trucks/ontario/ferrari__lamborghini__porsche-1968__1990/c174l9004a54a68?ad=offering'
 
     ],
 
