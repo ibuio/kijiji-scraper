@@ -10,7 +10,7 @@ var app     = express();
 // http://stackoverflow.com/questions/31092538/heroku-node-js-error-r10-boot-timeout-web-process-failed-to-bind-to-port-w
 app.set('port', (process.env.PORT || 5000));
 
-//For avoidong Heroku $PORT error
+//To avoid Heroku $PORT error
 app.get('/', function(request, response) {
     var result = 'App is running'
     response.send(result);
@@ -25,35 +25,36 @@ var client = require('twilio')(config.twilio.account, config.twilio.key);
 let processedAds = [];
 
 class Ad {
-    constructor(url, image, title, description, location, price) {
+    //constructor(url, image, title, description, location, price) {
+    constructor(url, title, description, location, price) {
         this.url = url;
         //if(url.indexOf('quebec') > -1)
         //    this.province = 'quebec';
         //else if(url.indexOf('ontario') > -1)
         //    this.province = 'ontario';
-        this.image = image;
-        this.title = title;
-        this.description = description;
-        this.location = location;
-        this.price = price;
+        //this.image = image;
+        //this.title = title;
+        //this.description = description;
+        //this.location = location;
+        //this.price = price;
     }
 
     static buildAd($jquerySelector) {
         var ad = new Ad();
 
         ad.url = 'http://www.kijiji.ca' + $jquerySelector.attr('data-vip-url');
-        ad.image = $jquerySelector.find('.image img').attr('src');
-        ad.title = $jquerySelector.find('a.title').text().trim();
-        ad.description = $jquerySelector.find('.description').text().trim();
-        ad.location = $jquerySelector.find('.location').text().trim();
-        ad.price = $jquerySelector.find('.price').text().trim();
 
-        // if(ad.url.indexOf('quebec') > -1)
-        //     ad.province = 'quebec';
-        // else if(ad.url.indexOf('ontario') > -1)
-        //     ad.province = 'ontario';
+        var adDate = $jquerySelector.find('span.date-posted').text().trim();
+        console.log('adDate: ' + adDate);
+        if(adDate.startsWith("Il y a"))
+            return ad;
 
-        return ad;
+        //ad.image = $jquerySelector.find('.image img').attr('src');
+        //ad.title = $jquerySelector.find('a.title').text().trim();
+        //ad.description = $jquerySelector.find('.description').text().trim();
+        //ad.location = $jquerySelector.find('.location').text().trim();
+        //ad.price = $jquerySelector.find('.price').text().trim();
+
     }
 
     isEqual(ad) {
@@ -65,11 +66,12 @@ class Ad {
     }
 
     toHtml() {
-        return `<tr><td><a href="${this.url}">${this.title}</a> Price: ${this.price}</td></tr>` +
-        `<tr><td>${this.location}</td></tr>` +
-        `<tr><td>${this.description}</td></tr>` +
-        `<tr><td><a href="${this.url}"><img src="${this.image}"/></a></td></tr>` +
-        `<tr><td>&nbsp;</td></tr>`;
+        // return `<tr><td><a href="${this.url}">${this.title}</a> Price: ${this.price}</td></tr>` +
+        // `<tr><td>${this.location}</td></tr>` +
+        // `<tr><td>${this.description}</td></tr>` +
+        // `<tr><td><a href="${this.url}"><img src="${this.image}"/></a></td></tr>` +
+        // `<tr><td>&nbsp;</td></tr>`;
+        return `<tr><td><a href="${this.url}">`
     }
 }
 
@@ -155,7 +157,6 @@ function sendAdsFoundSms(ads) {
                     console.log('Sms sent');
                 }
             });
-
             threashold++;
         }
         else
