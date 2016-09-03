@@ -25,6 +25,9 @@ var config = {
         sendingNumber: process.env.TWILIO_NUMBER
     },
 
+    // nb of alerts that can be sent in one batch
+    nbAlertsMax: 10,
+
     // Check evert X minutes
     minutesBetweenCheck: 3
 };

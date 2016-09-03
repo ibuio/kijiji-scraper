@@ -45,16 +45,15 @@ class Ad {
         ad.url = 'http://www.kijiji.ca' + $jquerySelector.attr('data-vip-url');
 
         var adDate = $jquerySelector.find('span.date-posted').text().trim();
-        console.log('adDate: ' + adDate);
-        if(adDate.startsWith("Il y a"))
-            return ad;
-
         //ad.image = $jquerySelector.find('.image img').attr('src');
-        //ad.title = $jquerySelector.find('a.title').text().trim();
+        ad.title = $jquerySelector.find('a.title').text().trim();
         //ad.description = $jquerySelector.find('.description').text().trim();
-        //ad.location = $jquerySelector.find('.location').text().trim();
+        ad.location = $jquerySelector.find('.location').text().trim();
         //ad.price = $jquerySelector.find('.price').text().trim();
 
+        // keep add only if add date is from today
+        if(adDate.startsWith("Il y a"))
+            return ad;
     }
 
     isEqual(ad) {
@@ -139,7 +138,7 @@ function sendAdsFoundSms(ads) {
 
     var threashold = 1; // send 5 firsts sms. for test only
     ads.forEach( ad => {
-        if(threashold <= 5) {
+        if(threashold <= config.nbAlertsMax) {
             console.log(`sending sms for ad: ${ad.title} in location: ${ad.location}` );
             //var message = 'ad in:' + ad.location.substring(0,60) + '; Title: ' + ad.title.substring(0,100);
             var message = ad.url;
@@ -164,6 +163,7 @@ function sendAdsFoundSms(ads) {
     });
 }
 
+// not called
 function formatAds(ads) {
     const adsFoundMessage = createAdsFoundMessage(ads);
     const adsTableRows = ads.map(ad => ad.toHtml());
