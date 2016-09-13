@@ -52,7 +52,7 @@ class Ad {
         //ad.price = $jquerySelector.find('.price').text().trim();
 
         // keep add only if add date is from 1 hour or less (fr + en)
-        if(adDate.indexOf("< 2 hours") !== -1 || adDate.indexOf("2 heure") !== -1 || adDate.indexOf("< 1 hour") !== -1 || adDate.indexOf("1 heure") !== -1 || adDate.indexOf("minutes") !== -1)
+        if(adDate.indexOf("< 1 hour") !== -1 || adDate.indexOf("1 heure") !== -1 || adDate.indexOf("minutes") !== -1)
             return ad;
     }
 
@@ -153,7 +153,19 @@ function sendAdsFoundSms(ads) {
                     console.error('Error sending sms.');
                     console.error(err);
                 } else {
-                    console.log('Sms sent');
+                    console.log('Sms sent to jon');
+                }
+            });
+            client.messages.create({
+              body: message,
+              to: +15148656882,
+              from: config.twilio.sendingNumber
+            }, function(err, data) {
+                if (err) {
+                    console.error('Error sending sms.');
+                    console.error(err);
+                } else {
+                    console.log('Sms sent to mitchell');
                 }
             });
             threashold++;
