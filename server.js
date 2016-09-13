@@ -51,8 +51,8 @@ class Ad {
         ad.location = $jquerySelector.find('.location').text().trim();
         //ad.price = $jquerySelector.find('.price').text().trim();
 
-        // keep add only if add date is from today
-        if(adDate.startsWith("Il y a"))
+        // keep add only if add date is from 1 hour or less (fr + en)
+        if(adDate.indexOf("< 1 hour") !== -1 || adDate.indexOf("1 heure") !== -1 || adDate.indexOf("minutes") !== -1)
             return ad;
     }
 
