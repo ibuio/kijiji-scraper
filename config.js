@@ -4,11 +4,12 @@ var config = {
     // Urls of the kijiji search pages you want to scrape
     // hint - use the filters as much as you want then copy the resulting url
     //'http://www.kijiji.ca/b-autos-camions/quebec/autre+type+de+carrosserie__berline__bicorps__cabriolet__coupe__familiale/c174l9001a138 ',
+    // 'http://www.kijiji.ca/b-autos-camions/quebec/ferrari__lamborghini__porsche-1968__1995/c174l9001a54a68?ad=offering',
+    // 'http://www.kijiji.ca/b-cars-trucks/ontario/ferrari__lamborghini__porsche-1968__1995/c174l9004a54a68?ad=offering',
+    // 'http://www.kijiji.ca/b-cars-trucks/alberta/ferrari__lamborghini__porsche-1968__1995/c174l9003a54a68?ad=offering',
+    // 'http://www.kijiji.ca/b-cars-trucks/british-columbia/ferrari__lamborghini__porsche-1968__1995/c174l9007a54a68?ad=offering'
     urls: [
-        'http://www.kijiji.ca/b-autos-camions/quebec/ferrari__lamborghini__porsche-1968__1995/c174l9001a54a68?ad=offering',
-        'http://www.kijiji.ca/b-cars-trucks/ontario/ferrari__lamborghini__porsche-1968__1995/c174l9004a54a68?ad=offering',
-        'http://www.kijiji.ca/b-cars-trucks/alberta/ferrari__lamborghini__porsche-1968__1995/c174l9003a54a68?ad=offering',
-        'http://www.kijiji.ca/b-cars-trucks/british-columbia/ferrari__lamborghini__porsche-1968__1995/c174l9007a54a68?ad=offering'
+
     ],
 
     email: {
