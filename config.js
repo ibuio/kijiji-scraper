@@ -9,7 +9,7 @@ var config = {
     // 'http://www.kijiji.ca/b-cars-trucks/alberta/ferrari__lamborghini__porsche-1968__1995/c174l9003a54a68?ad=offering',
     // 'http://www.kijiji.ca/b-cars-trucks/british-columbia/ferrari__lamborghini__porsche-1968__1995/c174l9007a54a68?ad=offering'
     urls: [
-
+        'http://www.kijiji.ca/b-classic-cars/canada/bmw__ferrari__lamborghini__porsche-308__328__348__355__356__360__430__456__535+gran+turismo__550__575__911__912__914__928__930__944__968__gallardo__m3__mondial__murcielago__testarossa-1968__1991/c122l0a142a1000142a95?ad=offering&siteLocale=fr_CA'
     ],
 
     email: {
