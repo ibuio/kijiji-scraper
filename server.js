@@ -144,30 +144,30 @@ function sendAdsFoundSms(ads) {
             var message = ad.url;
             console.log('message: ' + message);
 
-            // client.messages.create({
-            //   body: message,
-            //   to: +15146229479,
-            //   from: config.twilio.sendingNumber
-            // }, function(err, data) {
-            //     if (err) {
-            //         console.error('Error sending sms.');
-            //         console.error(err);
-            //     } else {
-            //         console.log('Sms sent to jon');
-            //     }
-            // });
             client.messages.create({
               body: message,
-              to: +15148656882,
+              to: +15146229479,
               from: config.twilio.sendingNumber
             }, function(err, data) {
                 if (err) {
                     console.error('Error sending sms.');
                     console.error(err);
                 } else {
-                    console.log('Sms sent to mitchell');
+                    console.log('Sms sent to jon');
                 }
             });
+            // client.messages.create({
+            //   body: message,
+            //   to: +15148656882,
+            //   from: config.twilio.sendingNumber
+            // }, function(err, data) {
+            //     if (err) {
+            //         console.error('Error sending sms.');
+            //         console.error(err);
+            //     } else {
+            //         console.log('Sms sent to mitchell');
+            //     }
+            // });
             threashold++;
         }
         else
