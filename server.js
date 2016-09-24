@@ -6,8 +6,6 @@ var RSVP = require('rsvp');
 var config = require('./config');
 var express = require('express');
 var app     = express();
-// var moment = require('moment');
-// moment().format();
 
 // http://stackoverflow.com/questions/31092538/heroku-node-js-error-r10-boot-timeout-web-process-failed-to-bind-to-port-w
 app.set('port', (process.env.PORT || 5000));
@@ -30,9 +28,6 @@ class Ad {
     //constructor(url, image, title, description, location, price) {
     constructor(url, title, description, location, price) {
         this.url = url;
-
-        // this.createDate = moment();
-
         //if(url.indexOf('quebec') > -1)
         //    this.province = 'quebec';
         //else if(url.indexOf('ontario') > -1)
@@ -193,18 +188,6 @@ const cronRule = `*/${config.minutesBetweenCheck} * * * *`;
 schedule.scheduleJob(cronRule, () => {
     updateItems().then(() => {
         console.log(`Ads updated, number of ads: ${processedAds.length}`);
-
-        int removedItems = 0;
-        // var nowMinusOneHour = moment().subtract(1, 'hours');
-        // remove old items (+ than 1 hour)
-        // processedAds.forEach(function(ad, index, object) {
-        //     if (moment(ad.dateCreated).isBefore(nowMinusOneHour)) {
-        //         object.splice(index, 1);
-        //         removedItems++;
-        //     }
-        // });
-        // console.log('Ads removed, number of ads: ' + removedItems);
-
     });
 });
 
