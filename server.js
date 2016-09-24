@@ -5,8 +5,8 @@ var schedule = require('node-schedule');
 var RSVP = require('rsvp');
 var config = require('./config');
 var express = require('express');
-// var moment = require('moment');
 var app     = express();
+// var moment = require('moment');
 // moment().format();
 
 // http://stackoverflow.com/questions/31092538/heroku-node-js-error-r10-boot-timeout-web-process-failed-to-bind-to-port-w
