@@ -10,7 +10,7 @@ var config = {
     // 'http://www.kijiji.ca/b-cars-trucks/british-columbia/ferrari__lamborghini__porsche-1968__1995/c174l9007a54a68?ad=offering'
     urls: [
         'http://www.kijiji.ca/b-autos-camions/quebec/autre+type+de+carrosserie__berline__bicorps__cabriolet__coupe__familiale-porsche-356__911__912__914__924__928__930__944__968__carrera-1968__1998/c174l9001a138a54a1000054a68?ad=offering',
-        'http://www.kijiji.ca/b-cars-trucks/alberta/convertible__coupe__hatchback__other+body+type__sedan__wagon-porsche-356__911__912__914__924__928__930__944__968__carrera-1968__1998/c174l9003a138a54a1000054a68?ad=offering'
+        'http://www.kijiji.ca/b-cars-trucks/alberta/convertible__coupe__hatchback__other+body+type__sedan__wagon-porsche-356__911__912__914__924__928__930__944__968__carrera-1968__1998/c174l9003a138a54a1000054a68?ad=offering',
         'http://www.kijiji.ca/b-cars-trucks/british-columbia/convertible__coupe__hatchback__other+body+type__sedan__wagon-porsche-356__911__912__914__924__928__930__944__968__carrera-1968__1998/c174l9007a138a54a1000054a68?ad=offering',
         'http://www.kijiji.ca/b-cars-trucks/manitoba/convertible__coupe__hatchback__other+body+type__sedan__wagon-porsche-356__911__912__914__924__928__930__944__968__carrera-1968__1998/c174l9006a138a54a1000054a68?ad=offering',
         'http://www.kijiji.ca/b-cars-trucks/new-brunswick/convertible__coupe__hatchback__other+body+type__sedan__wagon-porsche-356__911__912__914__924__928__930__944__968__carrera-1968__1998/c174l9005a138a54a1000054a68?ad=offering',
