@@ -145,18 +145,19 @@ function sendAdsFoundSms(ads) {
             console.log('message: ' + message);
 
             // jon
-            client.messages.create({
-              body: message,
-              to: +15146229479,
-              from: config.twilio.sendingNumber
-            }, function(err, data) {
-                if (err) {
-                    console.error('Error sending sms.');
-                    console.error(err);
-                } else {
-                    console.log('Sms sent to jon');
-                }
-            });
+            //client.messages.create({
+           //   body: message,
+           //   to: +15146229479,
+           //   from: config.twilio.sendingNumber
+           // }, function(err, data) {
+           //     if (err) {
+           //         console.error('Error sending sms.');
+           //         console.error(err);
+           //     } else {
+           //         console.log('Sms sent to jon');
+           //     }
+           // });
+
             // Mitchell
             client.messages.create({
               body: message,
@@ -170,6 +171,7 @@ function sendAdsFoundSms(ads) {
                     console.log('Sms sent to mitchell');
                 }
             });
+
             // Mitchell'partner 1
             client.messages.create({
               body: message,
