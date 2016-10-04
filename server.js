@@ -39,23 +39,6 @@ class Ad {
         //this.price = price;
     }
 
-    static buildAd($jquerySelector) {
-        var ad = new Ad();
-
-        ad.url = 'http://www.kijiji.ca' + $jquerySelector.attr('data-vip-url');
-
-        var adDate = $jquerySelector.find('span.date-posted').text().trim();
-        //ad.image = $jquerySelector.find('.image img').attr('src');
-        ad.title = $jquerySelector.find('a.title').text().trim();
-        //ad.description = $jquerySelector.find('.description').text().trim();
-        ad.location = $jquerySelector.find('.location').text().trim();
-        //ad.price = $jquerySelector.find('.price').text().trim();
-
-        // keep add only if add date is from 1 hour or less (fr + en)
-        if(adDate.indexOf("< 1 hour") !== -1 || adDate.indexOf("1 heure") !== -1 || adDate.indexOf("minutes") !== -1)
-            return ad;
-    }
-
     isEqual(ad) {
         return ad.url === this.url;
     }
@@ -100,6 +83,23 @@ function createAdFetchPromise(url) {
             resolve(parsedAds);
         });
     });
+}
+
+static buildAd($jquerySelector) {
+    var ad = new Ad();
+
+    ad.url = 'http://www.kijiji.ca' + $jquerySelector.attr('data-vip-url');
+
+    var adDate = $jquerySelector.find('span.date-posted').text().trim();
+    //ad.image = $jquerySelector.find('.image img').attr('src');
+    ad.title = $jquerySelector.find('a.title').text().trim();
+    //ad.description = $jquerySelector.find('.description').text().trim();
+    ad.location = $jquerySelector.find('.location').text().trim();
+    //ad.price = $jquerySelector.find('.price').text().trim();
+
+    // keep add only if add date is from 1 hour or less (fr + en)
+    if(adDate.indexOf("< 1 hour") !== -1 || adDate.indexOf("1 heure") !== -1 || adDate.indexOf("minutes") !== -1)
+        return ad;
 }
 
 function processNewAds(fetchedAds) {

@@ -46,7 +46,7 @@ var config = {
     nbAlertsMax: 10,
 
     // Check evert X minutes
-    minutesBetweenCheck: 3
+    minutesBetweenCheck: 7
 };
 
 module.exports = config;
