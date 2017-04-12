@@ -147,7 +147,7 @@ function sendAdsFoundSms(ads) {
             // jon
             client.messages.create({
               body: message,
-              to: +15146229479,
+              to: +15145555555,
               from: config.twilio.sendingNumber
             }, function(err, data) {
                 if (err) {
